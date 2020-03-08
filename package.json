@@ -4,10 +4,11 @@
   "description": "Cickodes is an app that helps developers find a true selected highlighted awesome; snippet codes, best practices, best how-to-dos and T-shape guides in programming.",
   "main": "server/index.js",
   "scripts": {
-    "test": "mocha --require @babel/register server/**/*.test.js",
-    "test/show": "nyc npm run test",
-    "test/coverage": "nyc --reporter=html --report=text npm run test",
-    "start": "nodemon --exec babel-node server/index"
+    "start": "babel-node server/index",
+    "test": "mocha --require @babel/register server/**/*.test.js --timeout 10000 --exit",
+    "show": "nyc npm run test",
+    "coverage": "nyc --reporter=html --report=text npm run test",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -29,8 +30,7 @@
     "@babel/runtime": "^7.8.4",
     "babel-loader": "^8.0.6",
     "babel-preset-env": "^1.7.0",
-    "express": "^4.17.1",
-    "nodemon": "^2.0.2"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",

@@ -1,16 +1,17 @@
-require('dotenv').config()
-import express from 'express'
+import express from 'express';
 
-const app = express()
-const router = express.Router()
+// eslint-disable-next-line import/no-extraneous-dependencies
+require('dotenv').config();
 
-const port = process.env.PORT
+const app = express();
 
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
+const port = process.env.PORT || 5000;
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
+// eslint-disable-next-line no-console
+app.listen(port, () => console.log(`Server is running on http://localhost:${port}`));
 
-app.listen(port, () => console.log(`Server is running on http://localhost:${port}`))
-
-export {app}
+export default app;
