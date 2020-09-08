@@ -4,9 +4,10 @@
   "description": "Cickodes is an app that helps developers find a true selected, highlighted awesome; snippet codes, best practices, best how-to-dos and T-shape guides in programming. \r This is being developed as self-learning project that would probably turn to be an open source.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "dev": "nodemon --exec babel-node server/index.js",
-    "coverage": "npm run test && jest --coverage && cat ./coverage/lcov.info | coveralls"
+    "coverage": "jest --coverage",
+    "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -30,5 +31,10 @@
     "@babel/node": "^7.10.5",
     "@babel/preset-env": "^7.11.5",
     "coveralls": "^3.1.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "server/**/*.js"
+    ]
   }
 }
